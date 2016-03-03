@@ -1,3 +1,8 @@
+#include "debug.h"
+#include "Arduino.h"
+
+#define DEBUG_ENABLED 1
+
 #ifdef DEBUG_ENABLED
 #include <stdarg.h>
 #define SERIAL_COMMUNICATION_SPEED 9600 // bits per second

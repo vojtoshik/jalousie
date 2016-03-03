@@ -1,21 +1,28 @@
-#define DEBUG_ENABLED 1
-
-#include <ESP8266WiFi.h>
 #include <WebSocketsClient.h>
 
 #include "config.h"
+#include "debug.h"
 
-void debug(char* debugString, ...);
-void setupSerial();
+#include "WiFiUtilities.h"
+#include "JalousiePin.h"
 
-void verifyWifiIsConnected();
-
-WiFiClient wifiClient;
 WebSocketsClient webSocket;
+
+JalousiePin leftUpPin;
+JalousiePin leftDownPin;
+
+JalousiePin rightUpPin;
+JalousiePin rightDownPin;
 
 void processCommand(char* command, size_t length) {
   if (strcmp("OPEN_ALL", command) == 0) {
     debug("Openning both jalousies");
+    leftUpPin.activateLong();
+    rightUpPin.activateLong();
+  } else if (strcmp("CLOSE_ALL", command) == 0) {
+    debug("Closing both jalousies");
+    leftUpPin.activateLong();
+    rightUpPin.activateLong();
   } else {
     debug("Unknown command %s", command);
   }
@@ -23,7 +30,7 @@ void processCommand(char* command, size_t length) {
 
 void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
   switch(type) {
-    case WStype_DISCONNECTED:      
+    case WStype_DISCONNECTED:
       debug("Disconnected from controlling server");
       delay(1000);
       break;
@@ -40,7 +47,7 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
       break;
     default:
       debug("Got unexpected event type: %u", type);
-      break; 
+      break;
     }
 }
 
@@ -56,4 +63,10 @@ void setup() {
 void loop() {
   verifyWifiIsConnected();
   webSocket.loop();
+  
+  leftUpPin.work();
+  leftDownPin.work();
+
+  rightUpPin.work();
+  rightDownPin.work();
 }

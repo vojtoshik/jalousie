@@ -1,5 +1,11 @@
+#include "WiFiUtilities.h"
 
-boolean connectionInitialized = false;
+#include <ESP8266WiFi.h>
+
+#include "debug.h"
+#include "config.h"
+
+bool connectionInitialized = false;
 
 void verifyWifiIsConnected() {
 
@@ -12,14 +18,14 @@ void verifyWifiIsConnected() {
   int status = WiFi.status();
   boolean wasInterrupted = status != WL_CONNECTED;
 
-  while (status != WL_CONNECTED) {    
+  while (status != WL_CONNECTED) {
     debug("WiFi connection is down. Status: %d", status);
     status = WiFi.status();
     delay(2000);
   }
 
   if (wasInterrupted) {
-    debug("WiFi connection is up!");  
+    debug("WiFi connection is up!");
     debug("===== Connection Info =====");
     debug("SSID: %s", WiFi.SSID().c_str());
     IPAddress ip = WiFi.localIP();
