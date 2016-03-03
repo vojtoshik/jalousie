@@ -1,0 +1,11 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+const char* WIFI_SSID = "<WiFi Access Point name goes here>";
+const char* WIFI_PASSWORD = "<Password goes here>";
+
+const char* COMMAND_PROVIDER_HOST = "<command provider host>";
+const int   COMMAND_PROVIDER_PORT = 8080;
+const char* COMMAND_PROVIDER_PATH = "/command-listener/";
+
+#endif
