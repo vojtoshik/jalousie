@@ -4,25 +4,25 @@
 #include "debug.h"
 
 #include "WiFiUtilities.h"
-#include "JalousiePin.h"
+#include "PushButtonSwitch.h"
 
 WebSocketsClient webSocket;
 
-JalousiePin leftUpPin;
-JalousiePin leftDownPin;
+PushButtonSwitch leftUpButton("Left Up");
+PushButtonSwitch leftDownButton("Left Down");
 
-JalousiePin rightUpPin;
-JalousiePin rightDownPin;
+PushButtonSwitch rightUpButton("Right Up");
+PushButtonSwitch rightDownButton("Right Down");
 
 void processCommand(char* command, size_t length) {
   if (strcmp("OPEN_ALL", command) == 0) {
     debug("Openning both jalousies");
-    leftUpPin.activateLong();
-    rightUpPin.activateLong();
+    leftUpButton.longPush();
+    rightUpButton.longPush();
   } else if (strcmp("CLOSE_ALL", command) == 0) {
     debug("Closing both jalousies");
-    leftUpPin.activateLong();
-    rightUpPin.activateLong();
+    leftDownButton.longPush();
+    rightDownButton.longPush();
   } else {
     debug("Unknown command %s", command);
   }
@@ -64,9 +64,9 @@ void loop() {
   verifyWifiIsConnected();
   webSocket.loop();
   
-  leftUpPin.work();
-  leftDownPin.work();
+  leftUpButton.loop();
+  leftDownButton.loop();
 
-  rightUpPin.work();
-  rightDownPin.work();
+  rightUpButton.loop();
+  rightDownButton.loop();
 }
