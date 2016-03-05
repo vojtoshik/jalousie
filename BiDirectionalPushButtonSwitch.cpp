@@ -1,8 +1,8 @@
 #include "BiDirectionalPushButtonSwitch.h"
 
-BiDirectionalPushButtonSwitch::BiDirectionalPushButtonSwitch(char *switchName) {
-    this->buttonUp = new PushButtonSwitch(switchName);
-    this->buttonDown = new PushButtonSwitch(switchName);
+BiDirectionalPushButtonSwitch::BiDirectionalPushButtonSwitch(int pinUpId, int pinDownId, char *switchName) {
+    this->buttonUp = new PushButtonSwitch(pinUpId, switchName);
+    this->buttonDown = new PushButtonSwitch(pinDownId, switchName);
 }
 
 void BiDirectionalPushButtonSwitch::pushDown(unsigned int timeInMs) {

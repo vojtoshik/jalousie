@@ -8,8 +8,8 @@
 
 WebSocketsClient webSocket;
 
-JalousieSwitch leftJalousie("Left Jalousie");
-JalousieSwitch rightJalousie("Right Jalousie");
+JalousieSwitch leftJalousie(D7, D8, "Left Jalousie");
+JalousieSwitch rightJalousie(D0, D1, "Right Jalousie");
 
 void processCommand(char* command, size_t length) {
     if (strcmp("OPEN_ALL", command) == 0) {

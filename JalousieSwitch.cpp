@@ -1,7 +1,7 @@
 #include "JalousieSwitch.h"
 
-JalousieSwitch::JalousieSwitch(char *switchName) {
-    this->jalousieSwitch = new BiDirectionalPushButtonSwitch(switchName);
+JalousieSwitch::JalousieSwitch(int pinUpId, int pinDownId, char *switchName) {
+    this->jalousieSwitch = new BiDirectionalPushButtonSwitch(pinUpId, pinDownId, switchName);
 }
 
 void JalousieSwitch::open() {

@@ -10,7 +10,7 @@ private:
 
     long long turnOffAfter = 0;
 public:
-    PushButtonSwitch(char* switchName);
+    PushButtonSwitch(int pinId, char* switchName);
 
     void push(unsigned int ms);
     void release();

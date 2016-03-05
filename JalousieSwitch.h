@@ -7,11 +7,11 @@ class JalousieSwitch {
 private:
     BiDirectionalPushButtonSwitch* jalousieSwitch;
 
-    const unsigned int FULL_WAY_DURATION = 3000;
+    const unsigned int FULL_WAY_DURATION = 5000;
     const unsigned int SHORT_PUSH_DURATION = 500;
 
 public:
-    JalousieSwitch(char* switchName);
+    JalousieSwitch(int pinUpId, int pinDownId, char* switchName);
 
     void open();
     void close();

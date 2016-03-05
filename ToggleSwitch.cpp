@@ -1,15 +1,22 @@
 #include "ToggleSwitch.h"
+
+#include <Arduino.h>
+
 #include "debug.h"
 
 
-ToggleSwitch::ToggleSwitch(char* switchName) {
+
+ToggleSwitch::ToggleSwitch(int pinId, char* switchName) {
     name = switchName;
+    this->pinId = pinId;
+
+    pinMode(pinId, OUTPUT);
 }
 
 void ToggleSwitch::turnOn() {
     if (!this->isTurnedOn) {
         debug("Switch %s: turning on", name);
-        // TODO: here goes code which actually turns power on
+        digitalWrite(pinId, HIGH);
         this->isTurnedOn = true;
     }
 }
@@ -17,7 +24,7 @@ void ToggleSwitch::turnOn() {
 void ToggleSwitch::turnOff() {
     if (this->isTurnedOn) {
         debug("Switch %s: turning off", name);
-        //TODO: here goes code which actually turns power off
+        digitalWrite(pinId, LOW);
         this->isTurnedOn = false;
     }
 }

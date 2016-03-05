@@ -3,8 +3,8 @@
 #include "PushButtonSwitch.h"
 #include "debug.h"
 
-PushButtonSwitch::PushButtonSwitch(char* switchName) {
-    this->toggleSwitch = new ToggleSwitch(switchName);
+PushButtonSwitch::PushButtonSwitch(int pinId, char* switchName) {
+    this->toggleSwitch = new ToggleSwitch(pinId, switchName);
 }
 
 void PushButtonSwitch::push(unsigned int timeInMs) {

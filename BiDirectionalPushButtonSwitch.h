@@ -8,7 +8,7 @@ private:
     PushButtonSwitch* buttonUp;
     PushButtonSwitch* buttonDown;
 public:
-    BiDirectionalPushButtonSwitch(char* switchName);
+    BiDirectionalPushButtonSwitch(int pinUpId, int pinDownId, char* switchName);
 
     void pushUp(unsigned int timeInMs);
     void pushDown(unsigned int timeInMs);

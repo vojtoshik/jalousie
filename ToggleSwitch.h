@@ -5,8 +5,10 @@ class ToggleSwitch {
 private:
     bool isTurnedOn = false;
     char* name;
+
+    int pinId;
 public:
-    ToggleSwitch(char* switchName);
+    ToggleSwitch(int pinId, char* switchName);
 
     void turnOn();
     void turnOff();
