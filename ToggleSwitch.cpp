@@ -26,3 +26,7 @@ bool ToggleSwitch::isOn() {
     return this->isTurnedOn;
 }
 
+char* ToggleSwitch::getName() {
+    return name;
+}
+

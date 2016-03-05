@@ -18,7 +18,7 @@ void PushButtonSwitch::release()  {
 
 void PushButtonSwitch::loop() {
     if (this->toggleSwitch->isOn() && millis() > this->turnOffAfter) {
-        debug("It's time to release the button");
+        debug("%s: It's time to release the button", this->toggleSwitch->getName());
         this->toggleSwitch->turnOff();
     }
 }

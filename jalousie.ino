@@ -13,27 +13,28 @@ JalousieSwitch rightJalousie("Right Jalousie");
 
 void processCommand(char* command, size_t length) {
     if (strcmp("OPEN_ALL", command) == 0) {
-        debug("Openning both jalousies");
         leftJalousie.open();
         rightJalousie.open();
     } else if (strcmp("CLOSE_ALL", command) == 0) {
-        debug("Closing both jalousies");
         leftJalousie.close();
         rightJalousie.close();
     } else if (strcmp("OPEN_LEFT", command) == 0) {
-        debug("Openning left jalousie");
         leftJalousie.open();
     } else if (strcmp("OPEN_RIGHT", command) == 0) {
-        debug("Openning right jalousie");
         rightJalousie.open();
     } else if (strcmp("CLOSE_LEFT", command) == 0) {
-        debug("Closing left jalousie");
         leftJalousie.close();
     } else if (strcmp("CLOSE_RIGHT", command) == 0) {
-        debug("Closing right jalousie");
         rightJalousie.close();
+    } else if (strcmp("LEFT_UP", command) == 0) {
+        leftJalousie.up();
+    } else if (strcmp("RIGHT_UP", command) == 0) {
+        rightJalousie.up();
+    } else if (strcmp("LEFT_DOWN", command) == 0) {
+        leftJalousie.down();
+    } else if (strcmp("RIGHT_DOWN", command) == 0) {
+        rightJalousie.down();
     } else if (strcmp("NOOP", command) == 0) {
-        debug("Turning off both jalousies");
         leftJalousie.release();
         rightJalousie.release();
     } else {
