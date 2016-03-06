@@ -1,29 +1,22 @@
 #include "JalousieSwitch.h"
 
-JalousieSwitch::JalousieSwitch(int pinUpId, int pinDownId, char *switchName) {
-    this->jalousieSwitch = new BiDirectionalPushButtonSwitch(pinUpId, pinDownId, switchName);
+JalousieSwitch::JalousieSwitch(int pinUpId, int pinDownId, char *switchName)
+        : BiDirectionalPushButtonSwitch(pinUpId, pinDownId, switchName) {
+
 }
 
 void JalousieSwitch::open() {
-    this->jalousieSwitch->pushUp(this->FULL_WAY_DURATION);
+    this->pushUp(this->FULL_WAY_DURATION);
 }
 
 void JalousieSwitch::close() {
-    this->jalousieSwitch->pushDown(this->FULL_WAY_DURATION);
+    this->pushDown(this->FULL_WAY_DURATION);
 }
 
 void JalousieSwitch::up() {
-    this->jalousieSwitch->pushUp(this->SHORT_PUSH_DURATION);
+    this->pushUp(this->SHORT_PUSH_DURATION);
 }
 
 void JalousieSwitch::down() {
-    this->jalousieSwitch->pushDown(this->SHORT_PUSH_DURATION);
-}
-
-void JalousieSwitch::release() {
-    this->jalousieSwitch->release();
-}
-
-void JalousieSwitch::loop() {
-    this->jalousieSwitch->loop();
+    this->pushDown(this->SHORT_PUSH_DURATION);
 }

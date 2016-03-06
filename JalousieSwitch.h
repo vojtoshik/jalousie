@@ -3,10 +3,8 @@
 
 #include "BiDirectionalPushButtonSwitch.h"
 
-class JalousieSwitch {
+class JalousieSwitch : public BiDirectionalPushButtonSwitch {
 private:
-    BiDirectionalPushButtonSwitch* jalousieSwitch;
-
     const unsigned int FULL_WAY_DURATION = 5000;
     const unsigned int SHORT_PUSH_DURATION = 500;
 
@@ -18,9 +16,6 @@ public:
 
     void up();
     void down();
-
-    void release();
-    void loop();
 };
 
 #endif
