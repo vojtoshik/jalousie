@@ -62,7 +62,7 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
         default:
             debug("Got unexpected event type: %u", type);
             break;
-        }
+    }
 }
 
 void setup() {

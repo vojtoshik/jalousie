@@ -4,8 +4,6 @@
 
 #include "debug.h"
 
-
-
 ToggleSwitch::ToggleSwitch(int pinId, char* switchName) {
     name = switchName;
     this->pinId = pinId;
@@ -15,7 +13,7 @@ ToggleSwitch::ToggleSwitch(int pinId, char* switchName) {
 
 void ToggleSwitch::turnOn() {
     if (!this->isTurnedOn) {
-        debug("Switch %s: turning on", name);
+        debug("[ %s ]: turning on", name);
         digitalWrite(pinId, HIGH);
         this->isTurnedOn = true;
     }
@@ -23,7 +21,7 @@ void ToggleSwitch::turnOn() {
 
 void ToggleSwitch::turnOff() {
     if (this->isTurnedOn) {
-        debug("Switch %s: turning off", name);
+        debug("[ %s ]: turning off", name);
         digitalWrite(pinId, LOW);
         this->isTurnedOn = false;
     }

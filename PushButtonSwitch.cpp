@@ -1,6 +1,7 @@
+#include "PushButtonSwitch.h"
+
 #include <Arduino.h>
 
-#include "PushButtonSwitch.h"
 #include "debug.h"
 
 PushButtonSwitch::PushButtonSwitch(int pinId, char* switchName) {
